@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="BJrDWx" name="SOMI-1 Desktop Editor" projectType="guiapp"
+              useAppConfig="0" addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1"
+              companyName="Instruments of Things GmbH" companyWebsite="www.instrumentsofthings.com"
+              companyEmail="contact@instrumentsofthings.com" cppLanguageStandard="17"
+              bundleIdentifier="com.instrumentsofthings.somi-1-editor" version="0.1">
+  <MAINGROUP id="xVsjNm" name="SOMI-1 Desktop Editor">
+    <GROUP id="{C1DE7F08-3D34-7E82-087A-1180C7F26E80}" name="Source">
+      <GROUP id="{6F97294E-11E2-CC9A-D784-7EBCC779DBFA}" name="resources">
+        <GROUP id="{FD2FD7E2-1181-F7BA-A118-7A70E24E8790}" name="icons">
+          <GROUP id="{155EF7F8-ED70-79F3-3CCE-A8348CDD0DDE}" name="MacOS">
+            <FILE id="hQc4Wt" name="logo_mac_32x32.png" compile="0" resource="1"
+                  file="resources/img/icons/MacOS/logo_mac_32x32.png"/>
+            <FILE id="fgmm4N" name="logo_mac_64x64.png" compile="0" resource="1"
+                  file="resources/img/icons/MacOS/logo_mac_64x64.png"/>
+            <FILE id="BESxVF" name="logo_mac_256x256.png" compile="0" resource="1"
+                  file="resources/img/icons/MacOS/logo_mac_256x256.png"/>
+            <FILE id="JUtcgR" name="logo_mac_512x512.png" compile="0" resource="1"
+                  file="resources/img/icons/MacOS/logo_mac_512x512.png"/>
+            <FILE id="ya2fV4" name="logo_mac_1024x1024.png" compile="0" resource="1"
+                  file="resources/img/icons/MacOS/logo_mac_1024x1024.png"/>
+          </GROUP>
+          <GROUP id="{DDBF6B3C-1A2F-D0F3-9CDA-EA3CA3CB8AD0}" name="Windows">
+            <FILE id="WwQlje" name="logo_win_32x32.ico" compile="0" resource="1"
+                  file="resources/img/icons/Windows/logo_win_32x32.ico"/>
+            <FILE id="oXCjLk" name="logo_win_48x48.ico" compile="0" resource="1"
+                  file="resources/img/icons/Windows/logo_win_48x48.ico"/>
+            <FILE id="iyD73J" name="logo_win_256x256.ico" compile="0" resource="1"
+                  file="resources/img/icons/Windows/logo_win_256x256.ico"/>
+          </GROUP>
+        </GROUP>
+        <FILE id="bVAutu" name="icon_button_close.svg" compile="0" resource="1"
+              file="resources/img/icon_button_close.svg"/>
+        <FILE id="ZxE6JE" name="Inter-ExtraLight.ttf" compile="0" resource="1"
+              file="resources/fonts/Inter-ExtraLight.ttf"/>
+        <FILE id="y160Pb" name="Inter-Light.ttf" compile="0" resource="1" file="resources/fonts/Inter-Light.ttf"/>
+        <FILE id="QRunwX" name="sensor_figure.png" compile="0" resource="1"
+              file="resources/img/sensor_figure.png"/>
+      </GROUP>
+      <FILE id="YPX6nm" name="ControlChangeComponent.cpp" compile="1" resource="0"
+            file="Source/ControlChangeComponent.cpp"/>
+      <FILE id="VT1YYy" name="ControlChangeComponent.h" compile="0" resource="0"
+            file="Source/ControlChangeComponent.h"/>
+      <FILE id="BRUEOc" name="ControlChangeHeaderComponent.cpp" compile="1"
+            resource="0" file="Source/ControlChangeHeaderComponent.cpp"/>
+      <FILE id="LlF1Uq" name="ControlChangeHeaderComponent.h" compile="0"
+            resource="0" file="Source/ControlChangeHeaderComponent.h"/>
+      <FILE id="cNJvHI" name="data_types.h" compile="0" resource="0" file="Source/data_types.h"/>
+      <FILE id="SG9C3a" name="EditorView.cpp" compile="1" resource="0" file="Source/EditorView.cpp"/>
+      <FILE id="GtwoRk" name="EditorView.h" compile="0" resource="0" file="Source/EditorView.h"/>
+      <FILE id="RpQifF" name="InfoComponent.h" compile="0" resource="0" file="Source/InfoComponent.h"/>
+      <FILE id="uQ7ePy" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <FILE id="ALEWZn" name="MainComponent.cpp" compile="1" resource="0"
+            file="Source/MainComponent.cpp"/>
+      <FILE id="zHbWzk" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+      <FILE id="myp6x1" name="Mapping.cpp" compile="1" resource="0" file="Source/Mapping.cpp"/>
+      <FILE id="ox7O4Q" name="Mapping.h" compile="0" resource="0" file="Source/Mapping.h"/>
+      <FILE id="KtugC7" name="MovementParameterSelectComponent.h" compile="0"
+            resource="0" file="Source/MovementParameterSelectComponent.h"/>
+      <FILE id="gAIvnJ" name="NotesComponent.cpp" compile="1" resource="0"
+            file="Source/NotesComponent.cpp"/>
+      <FILE id="lE5Tcg" name="NotesComponent.h" compile="0" resource="0"
+            file="Source/NotesComponent.h"/>
+      <FILE id="lkEc84" name="NotesHeaderComponent.cpp" compile="1" resource="0"
+            file="Source/NotesHeaderComponent.cpp"/>
+      <FILE id="fjYtA1" name="NotesHeaderComponent.h" compile="0" resource="0"
+            file="Source/NotesHeaderComponent.h"/>
+      <FILE id="W4NOpw" name="PitchBendComponent.cpp" compile="1" resource="0"
+            file="Source/PitchBendComponent.cpp"/>
+      <FILE id="NrnbQq" name="PitchBendComponent.h" compile="0" resource="0"
+            file="Source/PitchBendComponent.h"/>
+      <FILE id="wPoiKo" name="PitchBendHeaderComponent.cpp" compile="1" resource="0"
+            file="Source/PitchBendHeaderComponent.cpp"/>
+      <FILE id="p7LivX" name="PitchBendHeaderComponent.h" compile="0" resource="0"
+            file="Source/PitchBendHeaderComponent.h"/>
+      <FILE id="Q8EYUM" name="SensorComponent.cpp" compile="1" resource="0"
+            file="Source/SensorComponent.cpp"/>
+      <FILE id="PQKBxn" name="SensorComponent.h" compile="0" resource="0"
+            file="Source/SensorComponent.h"/>
+      <FILE id="hWC3rZ" name="SensorHeaderComponent.cpp" compile="1" resource="0"
+            file="Source/SensorHeaderComponent.cpp"/>
+      <FILE id="FrG8ml" name="SensorHeaderComponent.h" compile="0" resource="0"
+            file="Source/SensorHeaderComponent.h"/>
+      <FILE id="r0RnIe" name="SomiDataModel.cpp" compile="1" resource="0"
+            file="Source/SomiDataModel.cpp"/>
+      <FILE id="HdZQEd" name="SomiDataModel.h" compile="0" resource="0" file="Source/SomiDataModel.h"/>
+      <FILE id="HOV4Hm" name="SomiDefines.h" compile="0" resource="0" file="Source/SomiDefines.h"/>
+      <FILE id="rVDwax" name="SomiLookAndFeel.h" compile="0" resource="0"
+            file="Source/SomiLookAndFeel.h"/>
+      <FILE id="oalW5p" name="Utils.h" compile="0" resource="0" file="Source/Utils.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
+  <EXPORTFORMATS>
+    <ANDROIDSTUDIO targetFolder="Builds/Android">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="SOMI-1 Editor"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="SOMI-1 Editor"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </ANDROIDSTUDIO>
+    <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="SOMI-1 Editor"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="SOMI-1 Editor"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </LINUX_MAKE>
+    <VS2022 targetFolder="Builds/VisualStudio2022" bigIcon="BESxVF">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="SOMI-1 Editor"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="SOMI-1 Editor"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2022>
+    <XCODE_IPHONE targetFolder="Builds/iOS">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="SOMI-1 Editor"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="SOMI-1 Editor"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_IPHONE>
+    <XCODE_MAC targetFolder="Builds/MacOSX" applicationCategory="public.app-category.utilities"
+               iosDevelopmentTeamID="CDZ55HPLZS" bigIcon="JUtcgR" hardenedRuntime="1">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="SOMI-1 Editor"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="SOMI-1 Editor"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+</JUCERPROJECT>
