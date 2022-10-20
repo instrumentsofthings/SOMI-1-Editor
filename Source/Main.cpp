@@ -72,6 +72,7 @@ public:
            #if JUCE_IOS || JUCE_ANDROID
             setFullScreen (true);
            #else
+            setTitleBarButtonsRequired(DocumentWindow::TitleBarButtons::closeButton + DocumentWindow::TitleBarButtons::minimiseButton, false);
             setResizable (false, false);
             centreWithSize (getWidth(), getHeight());
            #endif
