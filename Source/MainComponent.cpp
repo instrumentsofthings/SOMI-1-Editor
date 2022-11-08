@@ -18,10 +18,17 @@ MainComponent::MainComponent()
 
     // Decrease global UI scale if standard size does not fit in user area
     int physicalUserHeight = display.logicalToPhysical(display.displays.begin()->userArea).getHeight();
+    int physicalUserWidth = display.logicalToPhysical(display.displays.begin()->userArea).getWidth();
+    
+#if JUCE_IOS || JUCE_ANDROID
+    float scaleFactor = juce::jmin(static_cast<float>(physicalUserHeight) / 1320.f, static_cast<float>(physicalUserWidth) / 1915.f);
+    juce::Desktop::getInstance().setGlobalScaleFactor(scaleFactor);
+#else
     if (physicalUserHeight < 1320) {
         float scaleFactor = static_cast<float>(physicalUserHeight) / 1320.f - 0.05f; // A small offset for native OS window elements
         juce::Desktop::getInstance().setGlobalScaleFactor(scaleFactor);
     }
+#endif
     
     auto mainRect = display.physicalToLogical(juce::Rectangle<int>(0, 0, 1915, 1320));
     setSize (mainRect.getWidth(), mainRect.getHeight());
@@ -79,19 +86,16 @@ void MainComponent::releaseResources()
 //==============================================================================
 void MainComponent::paint (juce::Graphics& g)
 {
-    // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
-
-    // You can add your drawing code here!
+    g.fillAll(juce::Colour(0xFF333333));
 }
 
 void MainComponent::resized()
 {
-    // This is called when the MainContentComponent is resized.
-    // If you add any child components, this is where you should
-    // update their positions.
-    
+#if JUCE_IOS || JUCE_ANDROID
+    editorView.setBounds(0, 16, getWidth(), getHeight());
+#else
     editorView.setBounds(0, 0, getWidth(), getHeight());
+#endif
 }
 
 void MainComponent::actionListenerCallback(const juce::String& message)

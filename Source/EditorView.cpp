@@ -85,7 +85,7 @@ EditorView::~EditorView()
 
 void EditorView::paint(juce::Graphics& g)
 {
-    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));   // clear the background
+    g.fillAll(juce::Colour(0xFF333333));
 }
 
 void EditorView::resized()
