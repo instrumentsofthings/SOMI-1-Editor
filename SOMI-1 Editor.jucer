@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="BJrDWx" name="SOMI-1 Desktop Editor" projectType="guiapp"
-              useAppConfig="0" addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1"
-              companyName="Instruments of Things GmbH" companyWebsite="www.instrumentsofthings.com"
-              companyEmail="contact@instrumentsofthings.com" cppLanguageStandard="17"
-              bundleIdentifier="com.instrumentsofthings.somi-1-editor" version="0.1">
-  <MAINGROUP id="xVsjNm" name="SOMI-1 Desktop Editor">
+<JUCERPROJECT id="BJrDWx" name="SOMI-1-Editor" projectType="guiapp" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="Instruments of Things GmbH"
+              companyWebsite="www.instrumentsofthings.com" companyEmail="contact@instrumentsofthings.com"
+              cppLanguageStandard="17" bundleIdentifier="com.instrumentsofthings.somi-1-editor"
+              version="0.1" companyCopyright="GPLv3">
+  <MAINGROUP id="xVsjNm" name="SOMI-1-Editor">
     <GROUP id="{C1DE7F08-3D34-7E82-087A-1180C7F26E80}" name="Source">
       <GROUP id="{6F97294E-11E2-CC9A-D784-7EBCC779DBFA}" name="resources">
         <GROUP id="{FD2FD7E2-1181-F7BA-A118-7A70E24E8790}" name="icons">
@@ -150,7 +150,8 @@
         <MODULEPATH id="juce_gui_extra" path="../../../JUCE/modules"/>
       </MODULEPATHS>
     </VS2022>
-    <XCODE_IPHONE targetFolder="Builds/iOS">
+    <XCODE_IPHONE targetFolder="Builds/iOS" bigIcon="JUtcgR" iPadScreenOrientation="UIInterfaceOrientationLandscapeLeft,UIInterfaceOrientationLandscapeRight"
+                  iosDeviceFamily="2" iosDevelopmentTeamID="CDZ55HPLZS">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="SOMI-1 Editor"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="SOMI-1 Editor"/>
