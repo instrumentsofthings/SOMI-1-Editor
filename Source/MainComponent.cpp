@@ -18,7 +18,7 @@ MainComponent::MainComponent()
 
 #if JUCE_MAC
     // calculate the scale factor needed to fit the design template into a 1280 wide window
-    const float scaleFactor = (1280.0 / 1915.0);
+    const float scaleFactor = (1280.0 / physicalDim.getWidth());
 #else
     auto& display = juce::Desktop::getInstance().getDisplays();
     
