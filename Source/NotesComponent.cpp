@@ -134,8 +134,6 @@ NotesComponent::~NotesComponent()
 
 void NotesComponent::paint (juce::Graphics& g)
 {
-    auto display = juce::Desktop::getInstance().getDisplays();
-        
     g.fillAll(juce::Colour(0xFF333333));
 
     g.setColour(juce::Colours::white.withAlpha(0.5f));
@@ -144,59 +142,57 @@ void NotesComponent::paint (juce::Graphics& g)
     g.drawLine(lineVertical, 1.f);
     
     g.setColour(juce::Colours::black.withAlpha(0.5f));
-    auto lineDim = display.physicalToLogical(juce::Rectangle<int>(1008-945, 757-460, 1373-1008, 2));
+    auto lineDim = juce::Rectangle<int>(1008-945, 757-460, 1373-1008, 2);
     juce::Line<float> lineHorizontal1(juce::Point<float>(lineDim.getX(), lineDim.getY()), juce::Point<float>(lineDim.getX()+lineDim.getWidth(), lineDim.getY()));
     g.drawLine(lineHorizontal1);
     
-    lineDim = display.physicalToLogical(juce::Rectangle<int>(1008-945, 1132-460, 1373-1008, 2));
+    lineDim = juce::Rectangle<int>(1008-945, 1132-460, 1373-1008, 2);
     juce::Line<float> lineHorizontal2(juce::Point<float>(lineDim.getX(), lineDim.getY()), juce::Point<float>(lineDim.getX()+lineDim.getWidth(), lineDim.getY()));
     g.drawLine(lineHorizontal2);
 }
 
 void NotesComponent::resized()
 {
-    auto display = juce::Desktop::getInstance().getDisplays();
-    
     int posLabelsX = 1022 - 945;
     int btnColLeftX = posLabelsX + 136;
     int btnColRightX = posLabelsX + 240;
     int buttonWidth = 66;
     
-    titleLabel.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 528-460, 256, SomiLookAndFeel::fontSizeSmall)));
-    activeLabel.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 595-460, 120, SomiLookAndFeel::fontSizeSmall)));
-    inverseLabel.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 641-460, 120, SomiLookAndFeel::fontSizeSmall)));
-    thresholdLabel.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 687-460, 120, SomiLookAndFeel::fontSizeSmall)));
-    chooseNotePitchLabelTop.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 800-460, 260, SomiLookAndFeel::fontSizeSmall)));
-    chooseNotePitchLabelBottom.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 800-460+SomiLookAndFeel::fontSizeSmall+5, 260, SomiLookAndFeel::fontSizeSmall)));
-    noteRangeLabel.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 1064-460, 120, SomiLookAndFeel::fontSizeSmall)));
-    midiLabel.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 1205-460, 120, SomiLookAndFeel::fontSizeSmall)));
+    titleLabel.setBounds(juce::Rectangle<int>(posLabelsX, 528-460, 256, SomiLookAndFeel::fontSizeSmall));
+    activeLabel.setBounds(juce::Rectangle<int>(posLabelsX, 595-460, 120, SomiLookAndFeel::fontSizeSmall));
+    inverseLabel.setBounds(juce::Rectangle<int>(posLabelsX, 641-460, 120, SomiLookAndFeel::fontSizeSmall));
+    thresholdLabel.setBounds(juce::Rectangle<int>(posLabelsX, 687-460, 120, SomiLookAndFeel::fontSizeSmall));
+    chooseNotePitchLabelTop.setBounds(juce::Rectangle<int>(posLabelsX, 800-460, 260, SomiLookAndFeel::fontSizeSmall));
+    chooseNotePitchLabelBottom.setBounds(juce::Rectangle<int>(posLabelsX, 800-460+SomiLookAndFeel::fontSizeSmall+5, 260, SomiLookAndFeel::fontSizeSmall));
+    noteRangeLabel.setBounds(juce::Rectangle<int>(posLabelsX, 1064-460, 120, SomiLookAndFeel::fontSizeSmall));
+    midiLabel.setBounds(juce::Rectangle<int>(posLabelsX, 1205-460, 120, SomiLookAndFeel::fontSizeSmall));
     
-    activeOnButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColLeftX, 595-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
-    activeOffButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColRightX, 595-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
-    inverseOnButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColLeftX, 641-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
-    inverseOffButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColRightX, 641-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
+    activeOnButton.setBounds(juce::Rectangle<int>(btnColLeftX, 595-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
+    activeOffButton.setBounds(juce::Rectangle<int>(btnColRightX, 595-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
+    inverseOnButton.setBounds(juce::Rectangle<int>(btnColLeftX, 641-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
+    inverseOffButton.setBounds(juce::Rectangle<int>(btnColRightX, 641-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
     
-    auto logicalFontHeight = display.physicalToLogical(juce::Point<float>(0, SomiLookAndFeel::fontSizeSmall)).getY();
+    auto logicalFontHeight = juce::Point<float>(0, SomiLookAndFeel::fontSizeSmall).getY();
     const juce::Font font(SomiLookAndFeel::getFontInterExtraLight().withHeight(logicalFontHeight));
     
-    thresholdParam.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColLeftX, 687-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
+    thresholdParam.setBounds(juce::Rectangle<int>(btnColLeftX, 687-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
     thresholdParam.setFont(font);
     thresholdParam.setText("0.50", juce::dontSendNotification);
     
-    noteMinParam.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColLeftX, 1064-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
+    noteMinParam.setBounds(juce::Rectangle<int>(btnColLeftX, 1064-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
     noteMinParam.setFont(font);
     noteMinParam.setText("C1", juce::dontSendNotification);
     
-    noteMaxParam.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColRightX, 1064-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
+    noteMaxParam.setBounds(juce::Rectangle<int>(btnColRightX, 1064-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
     noteMaxParam.setFont(font);
     noteMaxParam.setText("C3", juce::dontSendNotification);
     
-    midiChParam.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColLeftX, 1205-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
+    midiChParam.setBounds(juce::Rectangle<int>(btnColLeftX, 1205-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
     midiChParam.setFont(font);
     midiChParam.setText("1", juce::dontSendNotification);
     
     int movementParamBoundOffset = (265-(460/2));
-    auto logicalMovementParamBounds = display.physicalToLogical(juce::Rectangle<int>(0, 891-460-movementParamBoundOffset, 460, 1047-880));
+    auto logicalMovementParamBounds = juce::Rectangle<int>(0, 891-460-movementParamBoundOffset, 460, 1047-880);
     notePitchParamSelComponent.setBounds(0, logicalMovementParamBounds.getY(), getWidth(), logicalMovementParamBounds.getHeight());
 }
 

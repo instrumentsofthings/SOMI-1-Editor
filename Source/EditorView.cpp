@@ -90,19 +90,17 @@ void EditorView::paint(juce::Graphics& g)
 
 void EditorView::resized()
 {
-    auto display = juce::Desktop::getInstance().getDisplays();
-    
     juce::Grid grid;
     
     using Track = juce::Grid::TrackInfo;
     using Px = juce::Grid::Px;
 
-    auto topRowHeight = display.physicalToLogical(juce::Rectangle<int>(0, 0, 1915, 460)).getHeight();
-    auto bottomRowHeight = display.physicalToLogical(juce::Rectangle<int>(0, 0, 1915, 1320-460)).getHeight();
-    auto col1Width = display.physicalToLogical(juce::Rectangle<int>(0, 0, 460, 1320)).getWidth();
-    auto col2Width = display.physicalToLogical(juce::Rectangle<int>(0, 0, 945-460, 1320)).getWidth();
-    auto col3Width = display.physicalToLogical(juce::Rectangle<int>(0, 0, 1430-945, 1320)).getWidth();
-    auto col4Width = display.physicalToLogical(juce::Rectangle<int>(0, 0, 1915-1430, 1320)).getWidth();
+    auto topRowHeight = juce::Rectangle<int>(0, 0, 1915, 460).getHeight();
+    auto bottomRowHeight = juce::Rectangle<int>(0, 0, 1915, 1320-460).getHeight();
+    auto col1Width = juce::Rectangle<int>(0, 0, 460, 1320).getWidth();
+    auto col2Width = juce::Rectangle<int>(0, 0, 945-460, 1320).getWidth();
+    auto col3Width = juce::Rectangle<int>(0, 0, 1430-945, 1320).getWidth();
+    auto col4Width = juce::Rectangle<int>(0, 0, 1915-1430, 1320).getWidth();
 
     grid.templateRows    = { Track(Px(topRowHeight)), Track(Px(bottomRowHeight)) };
     grid.templateColumns = { Track(Px(col1Width)),
@@ -121,7 +119,7 @@ void EditorView::resized()
 
     grid.performLayout(getLocalBounds());
     
-    infoComponent.setBounds(display.physicalToLogical(juce::Rectangle<int>(22, 22, 610, 1322-(22*2))));
+    infoComponent.setBounds(juce::Rectangle<int>(22, 22, 610, 1322-(22*2)));
 }
 
 void EditorView::addBtnListener(ActionListener* const listener)

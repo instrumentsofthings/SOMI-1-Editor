@@ -102,25 +102,23 @@ public:
 
     void resized() override
     {
-        auto display = juce::Desktop::getInstance().getDisplays();
-        
         int posLabelsX = 535 - 460;
         int btnColX = posLabelsX + 150;
         int btnColY = posLabelsX + 220;
         int btnColZ = posLabelsX + 290;
         int buttonWidth = 40;
         
-        activityLabel.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 265-(460/2), 120, SomiLookAndFeel::fontSizeSmall)));
-        accelerationLabel.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 311-(460/2), 120, SomiLookAndFeel::fontSizeSmall)));
-        tiltLabel.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 357-(460/2), 120, SomiLookAndFeel::fontSizeSmall)));
+        activityLabel.setBounds(juce::Rectangle<int>(posLabelsX, 265-(460/2), 120, SomiLookAndFeel::fontSizeSmall));
+        accelerationLabel.setBounds(juce::Rectangle<int>(posLabelsX, 311-(460/2), 120, SomiLookAndFeel::fontSizeSmall));
+        tiltLabel.setBounds(juce::Rectangle<int>(posLabelsX, 357-(460/2), 120, SomiLookAndFeel::fontSizeSmall));
         
-        activityButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColX, 265-(460/2), buttonWidth, SomiLookAndFeel::fontSizeSmall)));
-        accXButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColX, 311-(460/2), buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
-        accYButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColY, 311-(460/2), buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
-        accZButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColZ, 311-(460/2), buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
-        tiltXButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColX, 357-(460/2), buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
-        tiltYButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColY, 357-(460/2), buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
-        tiltZButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColZ, 357-(460/2), buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
+        activityButton.setBounds(juce::Rectangle<int>(btnColX, 265-(460/2), buttonWidth, SomiLookAndFeel::fontSizeSmall));
+        accXButton.setBounds(juce::Rectangle<int>(btnColX, 311-(460/2), buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
+        accYButton.setBounds(juce::Rectangle<int>(btnColY, 311-(460/2), buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
+        accZButton.setBounds(juce::Rectangle<int>(btnColZ, 311-(460/2), buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
+        tiltXButton.setBounds(juce::Rectangle<int>(btnColX, 357-(460/2), buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
+        tiltYButton.setBounds(juce::Rectangle<int>(btnColY, 357-(460/2), buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
+        tiltZButton.setBounds(juce::Rectangle<int>(btnColZ, 357-(460/2), buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
     }
 
     void setSelectedMovementParam(motion_param_t param)

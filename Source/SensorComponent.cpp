@@ -66,20 +66,18 @@ void SensorComponent::paint(juce::Graphics& g)
 
 void SensorComponent::resized()
 {
-    auto display = juce::Desktop::getInstance().getDisplays();
+    foundToggleButton.setBounds(juce::Rectangle<int>(36, 487-460+5, 24, 24));
     
-    foundToggleButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(36, 487-460+5, 24, 24)));
+    foundSomiLabel.setBounds(juce::Rectangle<int>(70, 487-460+6, 130, SomiLookAndFeel::fontSizeSmall));
+    batteryLevelLabel.setBounds(juce::Rectangle<int>(369, 487-460, 90, SomiLookAndFeel::fontSizeBig));
     
-    foundSomiLabel.setBounds(display.physicalToLogical(juce::Rectangle<int>(70, 487-460+6, 130, SomiLookAndFeel::fontSizeSmall)));
-    batteryLevelLabel.setBounds(display.physicalToLogical(juce::Rectangle<int>(369, 487-460, 90, SomiLookAndFeel::fontSizeBig)));
+    sensorImage.setBoundingBox(juce::Rectangle<int>(30, 180, 400, 400).toFloat());
     
-    sensorImage.setBoundingBox(display.physicalToLogical(juce::Rectangle<int>(30, 180, 400, 400).toFloat()));
-    
-    int physicalWidth = display.logicalToPhysical(juce::Rectangle<int>(0, 0, getWidth(), getHeight())).getWidth();
+    int physicalWidth = juce::Rectangle<int>(0, 0, getWidth(), getHeight()).getWidth();
     int buttonSpace = 96;
     
-    applyButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(physicalWidth/2 - 100 - buttonSpace/2, 1205-460, 100, 40 + SomiLookAndFeel::offsetUnderline)));
-    saveButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(physicalWidth/2 - 0 + buttonSpace/2, 1205-460, 100, 40 + SomiLookAndFeel::offsetUnderline)));
+    applyButton.setBounds(juce::Rectangle<int>(physicalWidth/2 - 100 - buttonSpace/2, 1205-460, 100, 40 + SomiLookAndFeel::offsetUnderline));
+    saveButton.setBounds(juce::Rectangle<int>(physicalWidth/2 - 0 + buttonSpace/2, 1205-460, 100, 40 + SomiLookAndFeel::offsetUnderline));
 }
 
 void SensorComponent::actionListenerCallback(const juce::String& message)

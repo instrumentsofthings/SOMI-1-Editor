@@ -49,15 +49,13 @@ void ControlChangePanelComponent::paint (juce::Graphics& g)
 
 void ControlChangePanelComponent::resized()
 {
-    auto display = juce::Desktop::getInstance().getDisplays();
-    
     int posLabelsX = 535 - 460;
 
-    titleLabel.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 81, 256, 40)));
-    infoLabelTopLeft.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 168, 68, SomiLookAndFeel::fontSizeSmall)));
-    infoLabelTopRight.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX+73, 168, 100, SomiLookAndFeel::fontSizeSmall)));
-    infoLabelBottomLeft.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 168+SomiLookAndFeel::fontSizeSmall+5, 86, SomiLookAndFeel::fontSizeSmall)));
-    infoLabelBottomRight.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX+91, 168+SomiLookAndFeel::fontSizeSmall+5, 50, SomiLookAndFeel::fontSizeSmall)));
+    titleLabel.setBounds(juce::Rectangle<int>(posLabelsX, 81, 256, 40));
+    infoLabelTopLeft.setBounds(juce::Rectangle<int>(posLabelsX, 168, 68, SomiLookAndFeel::fontSizeSmall));
+    infoLabelTopRight.setBounds(juce::Rectangle<int>(posLabelsX+73, 168, 100, SomiLookAndFeel::fontSizeSmall));
+    infoLabelBottomLeft.setBounds(juce::Rectangle<int>(posLabelsX, 168+SomiLookAndFeel::fontSizeSmall+5, 86, SomiLookAndFeel::fontSizeSmall));
+    infoLabelBottomRight.setBounds(juce::Rectangle<int>(posLabelsX+91, 168+SomiLookAndFeel::fontSizeSmall+5, 50, SomiLookAndFeel::fontSizeSmall));
 }
 
 ControlChangeHeaderComponent::ControlChangeHeaderComponent(SomiDataModel& model) : movementParamSelComponent(juce::Colour(SomiLookAndFeel::blue)), dataModel(model), selectedParam(TILT_X)
@@ -100,9 +98,7 @@ void ControlChangeHeaderComponent::paint (juce::Graphics& g)
 }
 
 void ControlChangeHeaderComponent::resized()
-{
-    auto display = juce::Desktop::getInstance().getDisplays();
-    
+{    
     juce::Grid grid;
     
     using Track = juce::Grid::TrackInfo;

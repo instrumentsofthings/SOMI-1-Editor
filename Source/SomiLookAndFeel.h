@@ -77,8 +77,7 @@ public:
         auto buttonArea = button.getLocalBounds();
         
         // Convert font pixel size to logical
-        auto display = juce::Desktop::getInstance().getDisplays();
-        auto logicalFontHeight = display.physicalToLogical(juce::Point<float>(0, fontSizeSmall)).getY();
+        auto logicalFontHeight = juce::Point<float>(0, fontSizeSmall).getY();
         
         const juce::Font font(getFontInterLight().withHeight(logicalFontHeight));
         g.setFont(font);
@@ -165,14 +164,11 @@ public:
     {
         auto buttonArea = button.getLocalBounds();
 
-        // Convert font pixel size to logical
-        auto display = juce::Desktop::getInstance().getDisplays();
-
         float logicalFontHeight = 0.f;
         if (button.getComponentID().compare("InfoButton") == 0)
-            logicalFontHeight = display.physicalToLogical(juce::Point<float>(0, fontSizeSmall-2)).getY();
+            logicalFontHeight = juce::Point<float>(0, fontSizeSmall-2).getY();
         else 
-            logicalFontHeight = display.physicalToLogical(juce::Point<float>(0, fontSizeBig)).getY();
+            logicalFontHeight = juce::Point<float>(0, fontSizeBig).getY();
 
         const juce::Font font(getFontInterLight().withHeight(logicalFontHeight));
         g.setFont(font);
@@ -205,9 +201,7 @@ public:
         {
             auto buttonArea = button.getLocalBounds();
             
-            // Convert font pixel size to logical
-            auto display = juce::Desktop::getInstance().getDisplays();
-            auto logicalFontHeight = display.physicalToLogical(juce::Point<float>(0, 40)).getY();
+            auto logicalFontHeight = juce::Point<float>(0, 40).getY();
             
             const juce::Font font(getFontInterLight().withHeight(logicalFontHeight));
             g.setFont(font);
@@ -230,8 +224,7 @@ public:
             auto buttonArea = button.getLocalBounds();
             
             // Convert font pixel size to logical
-            auto display = juce::Desktop::getInstance().getDisplays();
-            auto logicalFontHeight = display.physicalToLogical(juce::Point<float>(0, fontSizeBig)).getY();
+            auto logicalFontHeight = juce::Point<float>(0, fontSizeBig).getY();
             
             const juce::Font font(getFontInterLight().withHeight(logicalFontHeight));
             g.setFont(font);

@@ -28,9 +28,7 @@ public:
       supportButton("Support", juce::URL(SOMI_URL_SUPPORT))
     {
         setLookAndFeel(&somiLf);
-        
-        auto display = juce::Desktop::getInstance().getDisplays();
-        
+
         closeButton = std::make_unique<juce::DrawableButton>("CloseButton",  juce::DrawableButton::ButtonStyle::ImageFitted);
         closeButton->setImages(juce::Drawable::createFromImageData(BinaryData::icon_button_close_svg, BinaryData::icon_button_close_svgSize).get());
         closeButton->addListener(this);
@@ -38,7 +36,7 @@ public:
 
         addAndMakeVisible(&versionLabel);
         versionLabel.setText(juce::String("Version: ") + ProjectInfo::versionString, juce::dontSendNotification);
-        int versionFontHeight = display.physicalToLogical(juce::Point<int>(0, SomiLookAndFeel::fontSizeBig)).getY();
+        int versionFontHeight = juce::Point<int>(0, SomiLookAndFeel::fontSizeBig).getY();
         juce::Font versionFont(SomiLookAndFeel::getFontInterExtraLight().withHeight(versionFontHeight));
         versionLabel.setFont(versionFont);
         versionLabel.setJustificationType(juce::Justification::left);
@@ -55,7 +53,7 @@ public:
         infoText.setMultiLine(true);
         infoText.setReadOnly(true);
         infoText.setBorder(juce::BorderSize<int>(0));
-        int infoFontHeight = display.physicalToLogical(juce::Point<int>(0, SomiLookAndFeel::fontSizeSmall)).getY();
+        int infoFontHeight = juce::Point<int>(0, SomiLookAndFeel::fontSizeSmall).getY();
         juce::Font infoFont(SomiLookAndFeel::getFontInterExtraLight().withHeight(infoFontHeight));
         infoText.setFont(infoFont);
         infoText.setText("v" + juce::String(ProjectInfo::versionString) + "\n" + juce::String(juce::CharPointer_UTF8(SOMI_EDITOR_INFO_TEXT)), juce::dontSendNotification);
@@ -81,34 +79,32 @@ public:
 
     void resized() override
     {
-        auto display = juce::Desktop::getInstance().getDisplays();
-        
         int offset = 22;
         int xStart = 70 - offset;
         
-        closeButton->setBounds(display.physicalToLogical(juce::Rectangle<int>(609-64, 49-offset, 48, 48)));
+        closeButton->setBounds(juce::Rectangle<int>(609-64, 49-offset, 48, 48));
         
-        versionLabel.setBounds(display.physicalToLogical(juce::Rectangle<int>(xStart, 49-offset, 300, SomiLookAndFeel::fontSizeBig)));
+        versionLabel.setBounds(juce::Rectangle<int>(xStart, 49-offset, 300, SomiLookAndFeel::fontSizeBig));
         
-        infoText.setBounds(display.physicalToLogical(juce::Rectangle<int>(xStart, 983-offset, 609-70, 14*19)));
+        infoText.setBounds(juce::Rectangle<int>(xStart, 983-offset, 609-70, 14*19));
         
-        auto logicalFontHeight = display.physicalToLogical(juce::Point<float>(0, SomiLookAndFeel::fontSizeBig)).getY();
+        auto logicalFontHeight = juce::Point<float>(0, SomiLookAndFeel::fontSizeBig).getY();
         juce::Font font(SomiLookAndFeel::getFontInterExtraLight().withHeight(logicalFontHeight));
         
-        updateButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(xStart, 157-offset, 600, SomiLookAndFeel::fontSizeBig)));
+        updateButton.setBounds(juce::Rectangle<int>(xStart, 157-offset, 600, SomiLookAndFeel::fontSizeBig));
         font.setUnderline(true);
         updateButton.setFont(font, false, juce::Justification::topLeft);
         updateButton.changeWidthToFitText();
 
-        manualButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(xStart, 248-offset, 600, SomiLookAndFeel::fontSizeBig)));
+        manualButton.setBounds(juce::Rectangle<int>(xStart, 248-offset, 600, SomiLookAndFeel::fontSizeBig));
         manualButton.setFont(font, false, juce::Justification::topLeft);
         manualButton.changeWidthToFitText();
         
-        quickstartButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(xStart, 339-offset, 600, SomiLookAndFeel::fontSizeBig)));
+        quickstartButton.setBounds(juce::Rectangle<int>(xStart, 339-offset, 600, SomiLookAndFeel::fontSizeBig));
         quickstartButton.setFont(font, false, juce::Justification::topLeft);
         quickstartButton.changeWidthToFitText();
         
-        supportButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(xStart, 430-offset, 600, SomiLookAndFeel::fontSizeBig)));
+        supportButton.setBounds(juce::Rectangle<int>(xStart, 430-offset, 600, SomiLookAndFeel::fontSizeBig));
         supportButton.setFont(font, false, juce::Justification::topLeft);
         supportButton.changeWidthToFitText();
     }

@@ -113,24 +113,22 @@ void SensorHeaderComponent::paint (juce::Graphics& g)
 
 void SensorHeaderComponent::resized()
 {
-    auto display = juce::Desktop::getInstance().getDisplays();
-    
     int posLabelsX = 88;
     int buttonOffset = 78;
     int posButnsY = 247;
 
-    titleLabel.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 81, 128, 40)));
-    infoLabelLeft.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 168, 68, SomiLookAndFeel::fontSizeSmall)));
-    infoLabelRight.setBounds(display.physicalToLogical(juce::Rectangle<int>(156+5, 168, 80, SomiLookAndFeel::fontSizeSmall)));
+    titleLabel.setBounds(juce::Rectangle<int>(posLabelsX, 81, 128, 40));
+    infoLabelLeft.setBounds(juce::Rectangle<int>(posLabelsX, 168, 68, SomiLookAndFeel::fontSizeSmall));
+    infoLabelRight.setBounds(juce::Rectangle<int>(156+5, 168, 80, SomiLookAndFeel::fontSizeSmall));
     
-    infoButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(396, 30, 40, 40)));
+    infoButton.setBounds(juce::Rectangle<int>(396, 30, 40, 40));
     
-    sensorButton1.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, posButnsY, 64, 64)));
-    sensorButton2.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX+buttonOffset, posButnsY, 64, 64)));
-    sensorButton3.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX+buttonOffset*2, posButnsY, 64, 64)));
-    sensorButton4.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, posButnsY+buttonOffset, 64, 64)));
-    sensorButton5.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX+buttonOffset, posButnsY+buttonOffset, 64, 64)));
-    sensorButton6.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX+buttonOffset*2, posButnsY+buttonOffset, 64, 64)));
+    sensorButton1.setBounds(juce::Rectangle<int>(posLabelsX, posButnsY, 64, 64));
+    sensorButton2.setBounds(juce::Rectangle<int>(posLabelsX+buttonOffset, posButnsY, 64, 64));
+    sensorButton3.setBounds(juce::Rectangle<int>(posLabelsX+buttonOffset*2, posButnsY, 64, 64));
+    sensorButton4.setBounds(juce::Rectangle<int>(posLabelsX, posButnsY+buttonOffset, 64, 64));
+    sensorButton5.setBounds(juce::Rectangle<int>(posLabelsX+buttonOffset, posButnsY+buttonOffset, 64, 64));
+    sensorButton6.setBounds(juce::Rectangle<int>(posLabelsX+buttonOffset*2, posButnsY+buttonOffset, 64, 64));
 }
 
 int SensorHeaderComponent::getSelectedSensor() const

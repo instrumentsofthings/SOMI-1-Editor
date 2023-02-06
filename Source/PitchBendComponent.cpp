@@ -106,47 +106,43 @@ PitchBendComponent::~PitchBendComponent()
 
 void PitchBendComponent::paint(juce::Graphics& g)
 {
-    auto display = juce::Desktop::getInstance().getDisplays();
-    
     g.fillAll(juce::Colour(0xFF333333));
     
     g.setColour(juce::Colours::black.withAlpha(0.5f));
-    auto lineDim = display.physicalToLogical(juce::Rectangle<int>(1495-1430, 757-460, 1860-1495, 2));
+    auto lineDim = juce::Rectangle<int>(1495-1430, 757-460, 1860-1495, 2);
     juce::Line<float> lineHorizontal1(juce::Point<float>(lineDim.getX(), lineDim.getY()), juce::Point<float>(lineDim.getX()+lineDim.getWidth(), lineDim.getY()));
     g.drawLine(lineHorizontal1);
 }
 
 void PitchBendComponent::resized()
-{
-    auto display = juce::Desktop::getInstance().getDisplays();
-    
+{    
     int posLabelsX = 1509 - 1430;
     int btnColLeftX = posLabelsX + 136;
     int btnColRightX = posLabelsX + 240;
     int buttonWidth = 66;
     
-    titleLabel.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 528-460, 256, SomiLookAndFeel::fontSizeSmall)));
-    activeLabel.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 595-460, 120, SomiLookAndFeel::fontSizeSmall)));
-    inverseLabel.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 641-460, 120, SomiLookAndFeel::fontSizeSmall)));
-    scaleLabel.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 687-460, 120, SomiLookAndFeel::fontSizeSmall)));
-    midiLabel.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 800-460, 120, SomiLookAndFeel::fontSizeSmall)));
-    resetLabel.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX, 1205-460, 140, SomiLookAndFeel::fontSizeSmall)));
+    titleLabel.setBounds(juce::Rectangle<int>(posLabelsX, 528-460, 256, SomiLookAndFeel::fontSizeSmall));
+    activeLabel.setBounds(juce::Rectangle<int>(posLabelsX, 595-460, 120, SomiLookAndFeel::fontSizeSmall));
+    inverseLabel.setBounds(juce::Rectangle<int>(posLabelsX, 641-460, 120, SomiLookAndFeel::fontSizeSmall));
+    scaleLabel.setBounds(juce::Rectangle<int>(posLabelsX, 687-460, 120, SomiLookAndFeel::fontSizeSmall));
+    midiLabel.setBounds(juce::Rectangle<int>(posLabelsX, 800-460, 120, SomiLookAndFeel::fontSizeSmall));
+    resetLabel.setBounds(juce::Rectangle<int>(posLabelsX, 1205-460, 140, SomiLookAndFeel::fontSizeSmall));
     
-    activeOnButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColLeftX, 595-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
-    activeOffButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColRightX, 595-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
-    inverseOnButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColLeftX, 641-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
-    inverseOffButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColRightX, 641-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
-    resetMappingsButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX+84, 1205-460, 100, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
-    resetSensorsButton.setBounds(display.physicalToLogical(juce::Rectangle<int>(posLabelsX+206, 1205-460, 100, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
+    activeOnButton.setBounds(juce::Rectangle<int>(btnColLeftX, 595-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
+    activeOffButton.setBounds(juce::Rectangle<int>(btnColRightX, 595-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
+    inverseOnButton.setBounds(juce::Rectangle<int>(btnColLeftX, 641-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
+    inverseOffButton.setBounds(juce::Rectangle<int>(btnColRightX, 641-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
+    resetMappingsButton.setBounds(juce::Rectangle<int>(posLabelsX+84, 1205-460, 100, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
+    resetSensorsButton.setBounds(juce::Rectangle<int>(posLabelsX+206, 1205-460, 100, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
     
-    auto logicalFontHeight = display.physicalToLogical(juce::Point<float>(0, SomiLookAndFeel::fontSizeSmall)).getY();
+    auto logicalFontHeight = juce::Point<float>(0, SomiLookAndFeel::fontSizeSmall).getY();
     const juce::Font font(SomiLookAndFeel::getFontInterExtraLight().withHeight(logicalFontHeight));
     
-    scaleParam.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColLeftX, 687-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
+    scaleParam.setBounds(juce::Rectangle<int>(btnColLeftX, 687-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
     scaleParam.setFont(font);
     scaleParam.setText("1.00", juce::dontSendNotification);
     
-    midiChParam.setBounds(display.physicalToLogical(juce::Rectangle<int>(btnColLeftX, 800-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline)));
+    midiChParam.setBounds(juce::Rectangle<int>(btnColLeftX, 800-460, buttonWidth, SomiLookAndFeel::fontSizeSmall + SomiLookAndFeel::offsetUnderline));
     midiChParam.setFont(font);
     midiChParam.setText("1", juce::dontSendNotification);
 }

@@ -15,23 +15,21 @@ MainComponent::MainComponent()
 : somiMidiIoInitialized(false), dataModel(), editorView(dataModel)
 {  
     auto& display = juce::Desktop::getInstance().getDisplays();
+    auto physicalDim = juce::Rectangle<float>(0, 0, 1915, 1320); // Took from design template
 
-    // Decrease global UI scale if standard size does not fit in user area
-    int physicalUserHeight = display.logicalToPhysical(display.displays.begin()->userArea).getHeight();
-    int physicalUserWidth = display.logicalToPhysical(display.displays.begin()->userArea).getWidth();
+    // Scale UI to match logical user area
+    const float physicalUserHeight = display.logicalToPhysical(display.displays.begin()->userArea).toFloat().getHeight();
+    const float physicalUserWidth = display.logicalToPhysical(display.displays.begin()->userArea).toFloat().getWidth();
     
-#if JUCE_IOS || JUCE_ANDROID
-    float scaleFactor = juce::jmin(static_cast<float>(physicalUserHeight) / 1320.f, static_cast<float>(physicalUserWidth) / 1915.f);
-    juce::Desktop::getInstance().setGlobalScaleFactor(scaleFactor);
+#if JUCE_MAC
+    const float scaleFactor = juce::jmin(physicalDim.getHeight() / physicalUserHeight, physicalDim.getWidth() / physicalUserWidth);
 #else
-    if (physicalUserHeight < 1320) {
-        float scaleFactor = static_cast<float>(physicalUserHeight) / 1320.f - 0.05f; // A small offset for native OS window elements
-        juce::Desktop::getInstance().setGlobalScaleFactor(scaleFactor);
-    }
+    const float scaleFactor = juce::jmin(physicalUserHeight / physicalDim.getHeight(), physicalUserWidth / physicalDim.getWidth()) * 0.9f; // Add a bit space for OS elements
 #endif
     
-    auto mainRect = display.physicalToLogical(juce::Rectangle<int>(0, 0, 1915, 1320));
-    setSize (mainRect.getWidth(), mainRect.getHeight());
+    juce::Desktop::getInstance().setGlobalScaleFactor(scaleFactor);
+    
+    setSize(physicalDim.getWidth(), physicalDim.getHeight());
 
     addAndMakeVisible(&editorView);
     
