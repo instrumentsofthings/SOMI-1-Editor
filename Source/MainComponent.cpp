@@ -14,16 +14,17 @@
 MainComponent::MainComponent()
 : somiMidiIoInitialized(false), dataModel(), editorView(dataModel)
 {  
-    auto& display = juce::Desktop::getInstance().getDisplays();
     auto physicalDim = juce::Rectangle<float>(0, 0, 1915, 1320); // Took from design template
 
-    // Scale UI to match logical user area
-    const float physicalUserHeight = display.logicalToPhysical(display.displays.begin()->userArea).toFloat().getHeight();
-    const float physicalUserWidth = display.logicalToPhysical(display.displays.begin()->userArea).toFloat().getWidth();
-    
 #if JUCE_MAC
-    const float scaleFactor = juce::jmin(physicalDim.getHeight() / physicalUserHeight, physicalDim.getWidth() / physicalUserWidth);
+    // calculate the scale factor needed to fit the design template into a 1280 wide window
+    const float scaleFactor = (1280.0 / 1915.0);
 #else
+    auto& display = juce::Desktop::getInstance().getDisplays();
+    
+    // Scale UI to match logical user area
+    const float physicalUserHeight = display.logicalToPhysical(display.getPrimaryDisplay()->userArea).toFloat().getHeight();
+    const float physicalUserWidth = display.logicalToPhysical(display.getPrimaryDisplay()->userArea).toFloat().getWidth();
     const float scaleFactor = juce::jmin(physicalUserHeight / physicalDim.getHeight(), physicalUserWidth / physicalDim.getWidth()) * 0.9f; // Add a bit space for OS elements
 #endif
     
