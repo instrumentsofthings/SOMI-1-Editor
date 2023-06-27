@@ -12,7 +12,7 @@
 
 //==============================================================================
 MainComponent::MainComponent()
-: somiMidiIoInitialized(false), dataModel(), editorView(dataModel)
+: virtualMidiOutInitialized(false), somiMidiIoInitialized(false), dataModel(), editorView(dataModel)
 {  
     auto physicalDim = juce::Rectangle<float>(0, 0, 1915, 1320); // Took from design template
 
@@ -188,12 +188,20 @@ void MainComponent::enableMidiSomi()
     somiMidiIoInitialized = false;
     
     for (const auto& output : midiOutputs){
+
+        // Use virtual MIDI output port (loopMIDI) to forward MIDI data on Windows,
+        // as Windows does not allow conccurent access to MIDI devices with default driver.
+#if JUCE_WINDOWS
+        if (output.name.containsIgnoreCase("loopMIDI")) {
+            virtualMidiOutput = juce::MidiOutput::openDevice(output.identifier);
+            virtualMidiOutInitialized = true;
+            DBG("Using virtual MIDI output to forward MIDI data.");
+        }
+#endif
+
         if (output.name.containsIgnoreCase("SOMI-1")){
             midiOutput = juce::MidiOutput::openDevice(output.identifier);
-
             somiMidiIoInitialized = true;
-            
-            break;
         }
     }
     
@@ -273,6 +281,12 @@ void MainComponent::sendMidiMessage(const juce::MidiMessage& message)
 
 void MainComponent::handleIncomingMidiMessage(juce::MidiInput* source, const juce::MidiMessage& message)
 {
+    // Forward MIDI data to virtual port
+#if JUCE_WINDOWS
+    if (virtualMidiOutInitialized)
+        virtualMidiOutput->sendMessageNow(message);
+#endif
+
     // Get activity value of specific sensor to update view.
     if (message.isController()){
         

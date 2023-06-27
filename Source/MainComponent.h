@@ -48,6 +48,10 @@ private:
     void handleIncomingMidiMessage(juce::MidiInput* source, const juce::MidiMessage& message) override;
     void timerCallback() override;
     
+#if JUCE_WINDOWS
+    bool virtualMidiOutInitialized;
+    std::unique_ptr<juce::MidiOutput> virtualMidiOutput;
+#endif
     std::unique_ptr<juce::MidiOutput> midiOutput;
     bool somiMidiIoInitialized;
     juce::Array<juce::MidiDeviceInfo> midiInputs;
