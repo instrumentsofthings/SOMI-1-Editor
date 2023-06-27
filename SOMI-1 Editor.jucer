@@ -49,6 +49,8 @@
       <FILE id="cNJvHI" name="data_types.h" compile="0" resource="0" file="Source/data_types.h"/>
       <FILE id="SG9C3a" name="EditorView.cpp" compile="1" resource="0" file="Source/EditorView.cpp"/>
       <FILE id="GtwoRk" name="EditorView.h" compile="0" resource="0" file="Source/EditorView.h"/>
+      <FILE id="B2AWby" name="InfoComponent.cpp" compile="1" resource="0"
+            file="Source/InfoComponent.cpp"/>
       <FILE id="RpQifF" name="InfoComponent.h" compile="0" resource="0" file="Source/InfoComponent.h"/>
       <FILE id="uQ7ePy" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
       <FILE id="ALEWZn" name="MainComponent.cpp" compile="1" resource="0"
