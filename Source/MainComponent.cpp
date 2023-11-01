@@ -12,8 +12,12 @@
 
 //==============================================================================
 MainComponent::MainComponent()
-: virtualMidiOutInitialized(false), somiMidiIoInitialized(false), dataModel(), editorView(dataModel)
-{  
+: 
+#if JUCE_WINDOWS
+    virtualMidiOutInitialized(false),
+#endif
+    somiMidiIoInitialized(false), dataModel(), editorView(dataModel)
+{
     auto physicalDim = juce::Rectangle<float>(0, 0, 1915, 1320); // Took from design template
 
 #if JUCE_MAC
